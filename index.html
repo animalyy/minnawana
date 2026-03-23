@@ -15,7 +15,7 @@
     --accent:#b98be4;
     --accent2:#ff9db6;
   }
-  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;touch-action:none;}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;touch-action:none;}
   html,body{margin:0;width:100%;height:100%;overflow:hidden;background:linear-gradient(180deg,var(--bg1),var(--bg2));font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
   body{display:flex;align-items:center;justify-content:center;}
   #app{width:100vw;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:env(safe-area-inset-top,0) 10px env(safe-area-inset-bottom,0);}
@@ -521,6 +521,9 @@
     if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'w') keys.jumpPressed = false;
   });
   window.addEventListener('contextmenu', e => e.preventDefault());
+  window.addEventListener('gesturestart', e => e.preventDefault());
+  window.addEventListener('gesturechange', e => e.preventDefault());
+  window.addEventListener('gestureend', e => e.preventDefault());
 
   draw();
 })();
